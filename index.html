@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>kalkulator sederhana hisam</title>
+</head>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+.wadah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: pink;
+  flex-direction: column;
+}
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #f9f;
+    height: 400px;
+    width: 400px;
+    box-shadow:  0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  
+  button {
+    background: red;
+    height: 50px;
+    width: 60px;
+    border-radius: 10px;
+    border: none;
+    margin: 2px;
+    color: #f6f6f6;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #layar {
+    background: yellow;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px;
+  }
+  
+  button:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+.samaDengan {
+  background: #90678945;
+    height: 50px;
+    width: 60px;
+    border-radius: 10px;
+    border: none;
+    margin: 2px;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.x {
+  background: #90678945;
+  width: 200px;
+  color: black;
+}
+
+.samaDengan:hover {
+  background: tomato;
+ 
+}
+  
+</style>
+<body>
+  <div class="wadah">
+  <h1>KALKULATOR HISAM</h1>
+  <div class="card">
+  <input type="text" id="layar" placeholder="0">
+  </br>
+  <div>
+    <button onclick="tekan('7')">7</button>
+    <button onclick="tekan('8')">8</button>
+    <button onclick="tekan('9')">9</button>
+    <button onclick="tekan('/')" class="samaDengan">/</button>
+  </div>
+  <div>
+    <button onclick="tekan('4')">4</button>
+    <button onclick="tekan('5')">5</button>
+    <button onclick="tekan('6')">6</button>
+    <button onclick="tekan('*')" class="samaDengan">*</button>
+  </div>
+  <div>
+    <button onclick="tekan('1')">1</button>
+    <button onclick="tekan('2')">2</button>
+    <button onclick="tekan('3')">3</button>
+    <button onclick="tekan('-')" class="samaDengan">-</button>
+  </div>
+  <div>
+    <button onclick="tekan('0')">0</button>
+    <button onclick="hapus()" class="samaDengan">c</button>
+    <button onclick="hitung()" class="samaDengan">=</button>
+    <button onclick="tekan('+')" class="samaDengan">+</button>
+  </div>
+  <button onclick="backspace()" class="x">backspace</button>
+
+  </div>
+  </div>
+  <script>
+    
+    let layar = document.getElementById('layar');
+    function tekan(karakter) {
+      layar.value = layar.value + karakter;
+    }
+    function hapus() {
+      layar.value = "";
+    }
+    function hitung() {
+      try {
+        layar.value = eval(layar.value);
+    }catch(err) {
+      layar.value = "I LOVE YOU💖🥰"
+    }
+
+    }
+    function backspace() {
+    // Ambil semua teks di layar, lalu potong dari awal sampai sebelum karakter terakhir
+    layar.value = layar.value.slice(0, -1);
+}
+
+    
+  </script>
+</body>
+</html>
